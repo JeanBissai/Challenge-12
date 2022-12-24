@@ -15,19 +15,10 @@ connection.connect(function (err) {
         console.error("error connecting: " + err.stack);
         return;
     }
-
-    // console.log("Connected to db as id " + connection.threadId);
 });
-
-/*********************
-******* Logic ********
-*********************/
 
 getJob();
 
-/*********************
-****** Functions *****
-*********************/
 
 function getJob() {
     inquirer
@@ -105,7 +96,7 @@ function add_role() {
     connection.query(`SELECT * FROM department`, function (err, data) {
         if (err) throw err;
 
-        for (let i = 0; i < data.length; i++) { // Loops through and finds the name of all the departments
+        for (let i = 0; i < data.length; i++) {
             departments.push(data[i].name)
 
         }
